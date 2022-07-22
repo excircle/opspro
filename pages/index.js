@@ -1,5 +1,6 @@
-const baseUrl = process.env.NEXT_PUBLIC_API_URL + "/topics";
 import Link from 'next/link';
+const baseUrl = process.env.NEXT_PUBLIC_API_URL + "/topics";
+
 
 export default function Home({ posts }) {
   return (
@@ -14,7 +15,7 @@ export default function Home({ posts }) {
         {posts.map((post) => (
           <tr key={post.id}>
             <td className="font-medium text-blue-600 dark:text-blue-500 hover:underline">{post.documentation}</td>
-            <td className="font-medium text-blue-600 dark:text-blue-500 hover:underline"><Link href={{ pathname: "edit/[id]", query: { id: `${post.id}`, launch: `${post.launch}`, } }}><a>EDIT</a></Link></td>
+            <td className="font-medium text-blue-600 dark:text-blue-500 hover:underline"><Link href={{ pathname: "edit/[id]", query: { id: `${post.id}`, properties: "{'name':'value'}", } }}><a>EDIT</a></Link></td>
           </tr>
         ))}
       </tbody>
