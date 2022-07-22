@@ -3,6 +3,13 @@ const baseUrl = process.env.NEXT_PUBLIC_API_URL + "/topics";
 
 
 export default function Home({ posts }) {
+  const obj = posts;
+  const result = Object.keys(posts).map(key => ({
+    ...obj[key]
+  }));
+
+  console.log(JSON.stringify(posts));
+
   return (
     <table>
       <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
