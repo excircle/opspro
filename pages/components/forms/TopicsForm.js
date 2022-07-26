@@ -1,10 +1,14 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { addTopic } from "../../../api/topicApi";
+import { useRouter } from 'next/router';
 
 export default function TopicsForms() {
     const { register, handleSubmit } = useForm();
-    const onFormSubmit = (data) => addTopic(data);
+    const onFormSubmit = async (data) => {
+        const res = await addTopic(data);
+        router.push('/');
+    };
     const onErrors = (errors) => console.error(errors);
     const styling = "border-solid border-gray-300 border px-2 w-full rounded text-gray-700";
 

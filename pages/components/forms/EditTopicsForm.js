@@ -1,8 +1,11 @@
 import React, { useEffect, useMemo } from "react";
 import { useForm } from "react-hook-form";
 import { updateTopic } from "../../../api/topicApi";
+import { useRouter } from 'next/router';
 
 export default function EditTopicForm({ props }) {
+    const router = useRouter();
+
     const { register, reset, handleSubmit } = useForm({
         defaultValues: useMemo(() => {
             return props;
@@ -13,7 +16,12 @@ export default function EditTopicForm({ props }) {
         reset(props);
     }, [props]);
 
-    const onFormSubmit = (data) => updateTopic(data);
+    const onFormSubmit = async (data) => {
+        const res = await updateTopic(data);
+        console.log(res.status);
+        router.push('/');
+    };
+
     const onErrors = (errors) => console.error(errors);
     const styling = "border-solid border-gray-300 border px-2 w-full rounded text-gray-700";
 
