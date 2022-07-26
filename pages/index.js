@@ -1,25 +1,21 @@
+import Head from 'next/head';
+import TopicsTable from "./components/tables/TopicTable";
 const baseUrl = process.env.NEXT_PUBLIC_API_URL + "/topics";
-import TopicEditButton from './components/tables/TopicEditButton';
-import Link from 'next/link';
 
 export default function Home({ topics }) {
   return (
-    <table>
-      <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 text-center">
-        <tr>
-          <td>Topic</td>
-          <td>Edit</td>
-        </tr>
-      </thead>
-      <tbody>
-        {topics.map((topic) => (
-          <tr key={topic.id}>
-            <td className="font-medium text-blue-600 dark:text-blue-500 hover:underline py-1 px-2">{topic.documentation}</td>
-            <td className="font-medium text-blue-600 dark:text-blue-500 hover:underline"><TopicEditButton fields={topic} /></td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <>
+      <Head>
+        <title>Operations Professional Training Site</title>
+        <meta property="og:title" content="My page title" key="title" />
+      </Head>
+      <div className="bg-slate-600 px-36">
+        <div className="bg-slate-100">
+          <h1 className="text-center text-2xl">Exam Topics</h1>
+          <TopicsTable topics={topics} />
+        </div>
+      </div>
+    </>
   )
 }
 

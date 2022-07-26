@@ -6,6 +6,6 @@ export default function TopicEditButton({ fields }) {
             {
                 pathname: "edit/[id]",
                 query: fields
-            }}><a>EDIT</a></Link>
+            }}><a>Edit</a></Link>
     )
 }
