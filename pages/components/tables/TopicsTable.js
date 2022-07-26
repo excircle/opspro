@@ -1,19 +1,6 @@
 import React from "react";
-import { useState, useEffect } from 'react';
-import { getTopics } from "../../../api/topicApi";
 import TopicsList from "./TopicsList"
+const baseUrl = process.env.NEXT_PUBLIC_API_URL + "/topics";
 
-export default function TopicsTable() {
+export default function TopicsTable({ posts }) {
 
-  const [topics, setTopics] = useState([]);
-
-  useEffect(() => {
-    getTopics().then(_topics => setTopics(_topics))
-  }, [])
-
-  return (
-    <div >
-      <TopicsList topics={topics} />
-    </div>
-  );
-}

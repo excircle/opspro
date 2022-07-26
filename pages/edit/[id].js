@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import EditTopicsForm from '../components/forms/EditTopicsForm';
 
 export default function Edit() {
     const router = useRouter();
@@ -6,8 +7,7 @@ export default function Edit() {
 
     return (
         <div>
-            <h1>Topic ID: {props.id}</h1>
-            <h1>Topic Launch: {props.launch}</h1>
+            <EditTopicsForm props={props} />
         </div>
     )
 }

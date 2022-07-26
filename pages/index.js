@@ -1,20 +1,21 @@
 const baseUrl = process.env.NEXT_PUBLIC_API_URL + "/topics";
+import TopicEditButton from './components/tables/TopicEditButton';
 import Link from 'next/link';
 
-export default function Home({ posts }) {
+export default function Home({ topics }) {
   return (
     <table>
-      <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 text-center">
         <tr>
           <td>Topic</td>
           <td>Edit</td>
         </tr>
       </thead>
       <tbody>
-        {posts.map((post) => (
-          <tr key={post.id}>
-            <td className="font-medium text-blue-600 dark:text-blue-500 hover:underline">{post.documentation}</td>
-            <td className="font-medium text-blue-600 dark:text-blue-500 hover:underline"><Link href={{ pathname: "edit/[id]", query: { id: `${post.id}`, launch: `${post.launch}`, } }}><a>EDIT</a></Link></td>
+        {topics.map((topic) => (
+          <tr key={topic.id}>
+            <td className="font-medium text-blue-600 dark:text-blue-500 hover:underline py-1 px-2">{topic.documentation}</td>
+            <td className="font-medium text-blue-600 dark:text-blue-500 hover:underline"><TopicEditButton fields={topic} /></td>
           </tr>
         ))}
       </tbody>
@@ -26,16 +27,16 @@ export default function Home({ posts }) {
 // It won't be called on client-side, so you can even do
 // direct database queries.
 export async function getStaticProps() {
-  // Call an external API endpoint to get posts.
+  // Call an external API endpoint to get topics.
   // You can use any data fetching library
   const res = await fetch(baseUrl)
-  const posts = await res.json()
+  const topics = await res.json()
 
-  // By returning { props: { posts } }, the Blog component
-  // will receive `posts` as a prop at build time
+  // By returning { props: { topics } }, the Blog component
+  // will receive `topics` as a prop at build time
   return {
     props: {
-      posts,
+      topics,
     },
   }
 }

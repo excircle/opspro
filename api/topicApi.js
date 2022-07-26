@@ -14,3 +14,11 @@ export function addTopic(topic) {
         body: JSON.stringify(topic)
     }).then(handleFormResponse).catch(handleError);
 }
+
+export function updateTopic(topic) {
+    return fetch(baseUrl, {
+        method: "PUT",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(topic)
+    }).then(handleFormResponse).catch(handleError);
+}
