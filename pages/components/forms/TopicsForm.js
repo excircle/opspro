@@ -5,6 +5,8 @@ import { useRouter } from 'next/router';
 
 export default function TopicsForms() {
     const { register, handleSubmit } = useForm();
+    const router = useRouter();
+
     const onFormSubmit = async (data) => {
         const res = await addTopic(data);
         router.push('/');
