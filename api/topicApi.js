@@ -22,3 +22,15 @@ export function updateTopic(topic) {
         body: JSON.stringify(topic)
     }).then(handleFormResponse).catch(handleError);
 }
+
+export function deleteTopic(topic) {
+    return fetch(baseUrl, {
+        method: "DELETE",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(topic)
+    }).then(handleFormResponse).catch(handleError);
+}
+
+export function launchTopic(topic) {
+    return "ok"
+}
