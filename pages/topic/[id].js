@@ -25,10 +25,12 @@ export default function TopicContent() {
 
     return (
         <>
-            <h1 className="text-center text-2xl">{props.documentation} Documentation</h1>
+            <h1 className="text-center text-2xl">{props.documentation}</h1>
             <br />
-            <p>
-                testing: {content.content}
+            <h1 className="text-2xl">Documentation</h1>
+            <br />
+            <p className="font-thin">
+                {content.content}
             </p>
         </>
     )
