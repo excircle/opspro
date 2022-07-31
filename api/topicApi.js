@@ -16,6 +16,7 @@ export function addTopic(topic) {
 }
 
 export function updateTopic(topic) {
+    console.log(JSON.stringify(topic))
     return fetch(baseUrl, {
         method: "PUT",
         headers: { "content-type": "application/json" },
