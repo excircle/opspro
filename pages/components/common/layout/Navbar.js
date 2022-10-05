@@ -11,6 +11,9 @@ export default function Navbar() {
                 <Link href="/manage">
                     <a> Manage</a>
                 </Link> |
+                <Link href="/type-component">
+                    <a> Type Component</a>
+                </Link> |
             </nav>
         </>
     )

@@ -1,0 +1,3 @@
+export const barrierViewData = `Barrier view is a lot like a chroot.
+When a secrets engine is enabled, a random UUID is generated. This becomes the data root for that engine. Whenever that engine writes to the physical storage layer, it is prefixed with that UUID folder. Since the Vault storage layer doesn't support relative access (such as ../), this makes it impossible for an enabled secrets engine to access other data.
+This is an important security feature in Vault - even a malicious engine cannot access the data from any other engine.`
